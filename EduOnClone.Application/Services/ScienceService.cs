@@ -75,13 +75,41 @@ public class ScienceService(IUnitOfWork unitOfWork,
         return entity;
     }
 
-    public Task<List<ScienceDto>> GetByNameAsync(string name)
+    public async Task<List<ScienceDto>> GetByNameAsync(string name)
     {
+        var sciences = await _unitOfWork.Science.GetByNameAsync(name);
+        var subjects = await _unitOfWork.Subject.GetAllAsync();
 
+        var entities = new List<ScienceDto>();
+
+        foreach (var science in sciences)
+        {
+            var subject = subjects.First(p => p.Id == science.SubjectId);
+            var dto = (ScienceDto)science;
+            dto.Subject = new Subject()
+            {
+                Id = subject.Id,
+                SubjectName = subject.SubjectName,
+                SubjectDescription = subject.SubjectDescription,
+                Author = subject.Author,
+            };
+
+            entities.Add(dto);
+        }
+        return entities;
     }
 
-    public Task UpdateAsync(ScienceDto dto)
+    public async Task UpdateAsync(ScienceDto dto)
     {
+        var result = await _validator.ValidateAsync(dto);
+        if (!result.IsValid)
+            throw new ValidationException(result.GetErrorMessages());
 
+        var science = await _unitOfWork.Science.GetByIdAsync(dto.Id);
+        if (science is null)
+            throw new StatusCodeExeption(HttpStatusCode.NotFound, "Mavzu topilmadi");
+
+        science = (Science)dto;
+        await _unitOfWork.Science.UpdateAsync(science);
     }
 }

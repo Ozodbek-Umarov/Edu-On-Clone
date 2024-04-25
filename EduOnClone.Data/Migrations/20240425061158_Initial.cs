@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
+﻿using System;
+using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
@@ -18,7 +19,8 @@ namespace EduOnClone.Data.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     SubjectName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     SubjectDescription = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Author = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    Author = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -31,7 +33,8 @@ namespace EduOnClone.Data.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Question = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    Question = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -50,7 +53,8 @@ namespace EduOnClone.Data.Migrations
                     IsVerified = table.Column<bool>(type: "bit", nullable: false),
                     Gender = table.Column<int>(type: "int", nullable: false),
                     Password = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Role = table.Column<int>(type: "int", nullable: false)
+                    Role = table.Column<int>(type: "int", nullable: false),
+                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -67,7 +71,8 @@ namespace EduOnClone.Data.Migrations
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Title = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Author = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    SubjectId = table.Column<int>(type: "int", nullable: false)
+                    SubjectId = table.Column<int>(type: "int", nullable: false),
+                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -87,7 +92,8 @@ namespace EduOnClone.Data.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Variant = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    TestId = table.Column<int>(type: "int", nullable: false)
+                    TestId = table.Column<int>(type: "int", nullable: false),
+                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -102,8 +108,8 @@ namespace EduOnClone.Data.Migrations
 
             migrationBuilder.InsertData(
                 table: "Users",
-                columns: new[] { "Id", "Email", "FirstName", "Gender", "IsVerified", "LastName", "Password", "Role" },
-                values: new object[] { 1, "ozodchik.krasavchik2gmail.com", "Ozodbek", 1, false, "Umarov", "f40f5198-f995-4212-8604-cfef53690471", 1 });
+                columns: new[] { "Id", "CreatedAt", "Email", "FirstName", "Gender", "IsVerified", "LastName", "Password", "Role" },
+                values: new object[] { 1, new DateTime(2024, 4, 25, 6, 11, 58, 82, DateTimeKind.Utc).AddTicks(9118), "ozodchik.krasavchik2gmail.com", "Ozodbek", 1, false, "Umarov", "f40f5198-f995-4212-8604-cfef53690471", 1 });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Options_TestId",
