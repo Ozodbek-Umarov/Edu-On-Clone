@@ -21,7 +21,7 @@ public class AppDbContext(DbContextOptions<AppDbContext> options)
                 Id = 1,
                 FirstName = "Ozodbek",
                 LastName = "Umarov",
-                Email = "ozodchik.krasavchik2gmail.com",
+                Email = "ozodchik.krasavchik@gmail.com",
                 Gender = Gender.Male,
                 Password = "f40f5198-f995-4212-8604-cfef53690471",
                 Role = Role.SuperAdmin
