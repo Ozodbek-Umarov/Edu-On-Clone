@@ -9,4 +9,5 @@ public interface ISubjectService
     Task DeleteAsync(int id);
     Task<List<SubjectDto>> GetAllAsync();
     Task<SubjectDto?> GetByIdAsync(int id);
+    Task<SubjectDto?> GetByNameAsync(string name);
 }

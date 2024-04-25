@@ -30,6 +30,13 @@ public class SubjectsController(ISubjectService subjectService) : ControllerBase
     {
         return Ok(await _subjectService.GetByIdAsync(id));
     }
+
+    [HttpGet("{name}"), Authorize]
+    public async Task<IActionResult> GetByNameAsync(string name)
+    {
+        return Ok(await _subjectService.GetByNameAsync(name));
+    }
+
     [HttpDelete("{id}"), Authorize(Roles = "Admin, SuperAdmin")]
     public async Task<IActionResult> DeleteAsync(int id)
     {

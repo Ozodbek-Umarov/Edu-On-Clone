@@ -47,6 +47,15 @@ public class SubjectService(IUnitOfWork unitOfWork,
         return (SubjectDto)subject;
     }
 
+    public async Task<SubjectDto?> GetByNameAsync(string name)
+    {
+        var subject = await _unitOfWork.Subject.GetByNameAsync(name);
+        if (subject is null)
+            throw new StatusCodeExeption(HttpStatusCode.NotFound, "Fan mavjud emas");
+
+        return (SubjectDto)subject;
+    }
+
     public async Task UpdateAsync(SubjectDto dto)
     {
         var subject = await _unitOfWork.Subject.GetByIdAsync(dto.Id);
