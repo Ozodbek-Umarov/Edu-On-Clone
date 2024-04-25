@@ -7,7 +7,6 @@ public class Science : BaseEntity
     public string Title {  get; set; } = string.Empty;
     public string Author { get; set; } = string.Empty;
     
-
     public int SubjectId { get; set; }
     public Subject Subject { get; set; } = null!;
 }
