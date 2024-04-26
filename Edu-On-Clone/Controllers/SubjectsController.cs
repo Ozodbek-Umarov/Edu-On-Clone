@@ -19,7 +19,8 @@ public class SubjectsController(ISubjectService subjectService) : ControllerBase
         return Ok();
     }
 
-    [HttpGet, AllowAnonymous]
+    [HttpGet("subject")]
+    [Authorize]
     public async Task<IActionResult> GetAllAsync()
     {
         return Ok(await _subjectService.GetAllAsync());
@@ -31,7 +32,7 @@ public class SubjectsController(ISubjectService subjectService) : ControllerBase
         return Ok(await _subjectService.GetByIdAsync(id));
     }
 
-    [HttpGet("{name}"), Authorize]
+    [HttpGet("nomi"), Authorize]
     public async Task<IActionResult> GetByNameAsync(string name)
     {
         return Ok(await _subjectService.GetByNameAsync(name));
@@ -43,7 +44,7 @@ public class SubjectsController(ISubjectService subjectService) : ControllerBase
         await _subjectService.DeleteAsync(id);
         return Ok();
     }
-    [HttpPut, Authorize("Admin, SuperAdmin")]
+    [HttpPut, Authorize(Roles = "Admin, SuperAdmin")]
     public async Task<IActionResult> UpdateAsync([FromForm] SubjectDto dto)
     {
         await _subjectService.UpdateAsync(dto);

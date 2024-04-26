@@ -38,6 +38,18 @@ public class SubjectService(IUnitOfWork unitOfWork,
         return subject.Select(item => (SubjectDto)item).ToList();
     }
 
+    //public async Task<List<SubjectDto>> GetAllAsync()
+    //{
+    //    var subjects = await _unitOfWork.Subject.GetAllAsync();
+    //    return subjects.Select(subject => new SubjectDto
+    //    {
+    //        Id = subject.Id,
+    //        SubjectName = subject.SubjectName,
+    //        SubjectDescription = subject.SubjectDescription,
+    //        Author = subject.Author,
+    //    }).ToList();
+    //}
+
     public async Task<SubjectDto?> GetByIdAsync(int id)
     {
         var subject = await _unitOfWork.Subject.GetByIdAsync(id);
@@ -56,6 +68,7 @@ public class SubjectService(IUnitOfWork unitOfWork,
         return (SubjectDto)subject;
     }
 
+
     public async Task UpdateAsync(SubjectDto dto)
     {
         var subject = await _unitOfWork.Subject.GetByIdAsync(dto.Id);
@@ -66,6 +79,11 @@ public class SubjectService(IUnitOfWork unitOfWork,
         if (!result.IsValid)
             throw new ValidatorException(result.GetErrorMessages());
 
-        await _unitOfWork.Subject.UpdateAsync((Subject)dto);
+        subject.SubjectName = dto.SubjectName;
+        subject.SubjectDescription = dto.SubjectDescription;
+        subject.Author = dto.Author;
+
+        await _unitOfWork.Subject.UpdateAsync(subject);
     }
+
 }

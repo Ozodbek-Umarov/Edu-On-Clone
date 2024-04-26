@@ -40,12 +40,22 @@ public class UserService(IUnitOfWork unitOfWork) : IUserService
         var model = await _unitOfWork.User.GetByIdAsync(id);
         if (model is null)
             throw new StatusCodeExeption(HttpStatusCode.NotFound, "User not found");
+
         var user = (User)dto;
         user.Id = id;
         user.CreatedAt = TimeHelper.GetCurrentTime();
         user.Password = model.Password;
 
+        user.FirstName = dto.FirstName;
+        user.LastName = dto.LastName;
+        user.Email = dto.Email;
+        user.Gender = dto.Gender;
+
+        user.Role = model.Role;
+
         await _unitOfWork.User.UpdateAsync(user);
         throw new StatusCodeExeption(HttpStatusCode.OK, "User has been updated sucessfully");
     }
+
+
 }

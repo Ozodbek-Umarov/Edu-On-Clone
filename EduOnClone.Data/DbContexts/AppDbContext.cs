@@ -23,8 +23,9 @@ public class AppDbContext(DbContextOptions<AppDbContext> options)
                 LastName = "Umarov",
                 Email = "ozodchik.krasavchik@gmail.com",
                 Gender = Gender.Male,
-                Password = "f40f5198-f995-4212-8604-cfef53690471",
+                Password = "186cf774c97b60a1c106ef718d10970a6a06e06bef89553d9ae65d938a886eae",
                 Role = Role.SuperAdmin
             });
     }
 }
+

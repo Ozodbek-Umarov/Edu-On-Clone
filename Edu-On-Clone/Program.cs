@@ -54,6 +54,13 @@ builder.Services.AddTransient<IAdminService, AdminService>();
 builder.Services.ConfigureJwtAuthorize(builder.Configuration);
 builder.Services.ConfigureSwaggerAuthorize(builder.Configuration);
 
+builder.Services.AddAuthorization(options =>
+{
+    options.AddPolicy("Admin", policy => policy.RequireRole("Admin"));
+    options.AddPolicy("SuperAdmin", policy => policy.RequireRole("SuperAdmin"));
+});
+
+
 //Validator
 builder.Services.AddScoped<IValidator<User>, UserValidator>();
 builder.Services.AddScoped<IValidator<Subject>, SubjectValidator>();

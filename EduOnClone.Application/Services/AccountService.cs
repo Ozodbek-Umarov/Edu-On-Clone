@@ -32,13 +32,16 @@ public class AccountService(IUnitOfWork ofWork,
 
         if (user is null) throw new StatusCodeExeption(HttpStatusCode.NotFound, "User not found!");
 
-        if (user.Password.Equals(PasswordHasher.GetHash(login.Password)))
+        if (!user.Password.Equals(PasswordHasher.GetHash(login.Password)))
             throw new StatusCodeExeption(HttpStatusCode.Conflict, "Password incorrect!");
+
         if (!user.IsVerified)
             throw new StatusCodeExeption(HttpStatusCode.BadRequest, "User is not verified!");
 
         return _auth.GeneratedToken(user);
     }
+
+
 
     public async Task<bool> RegistrAsync(AddUserDto dto)
     {

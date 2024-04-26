@@ -24,7 +24,7 @@ public class ScienceController(IScienceService scienceService) : ControllerBase
         return Ok(await _scienceService.GetByIdAsync(id));
     }
 
-    [HttpGet("movies")]
+    [HttpGet("mavzu")]
     [Authorize]
     public async Task<IActionResult> GetAllAsync()
     {
