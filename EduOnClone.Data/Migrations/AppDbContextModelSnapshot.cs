@@ -30,9 +30,6 @@ namespace EduOnClone.Data.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("datetime2");
-
                     b.Property<int>("TestId")
                         .HasColumnType("int");
 
@@ -58,9 +55,6 @@ namespace EduOnClone.Data.Migrations
                     b.Property<string>("Author")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("datetime2");
 
                     b.Property<string>("Description")
                         .IsRequired()
@@ -95,9 +89,6 @@ namespace EduOnClone.Data.Migrations
                     b.Property<string>("Author")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("datetime2");
 
                     b.Property<string>("SubjectDescription")
                         .IsRequired()
@@ -176,13 +167,13 @@ namespace EduOnClone.Data.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedAt = new DateTime(2024, 4, 25, 7, 9, 55, 148, DateTimeKind.Utc).AddTicks(6067),
+                            CreatedAt = new DateTime(2024, 4, 26, 9, 59, 30, 618, DateTimeKind.Utc).AddTicks(8360),
                             Email = "ozodchik.krasavchik@gmail.com",
                             FirstName = "Ozodbek",
                             Gender = 1,
                             IsVerified = false,
                             LastName = "Umarov",
-                            Password = "f40f5198-f995-4212-8604-cfef53690471",
+                            Password = "186cf774c97b60a1c106ef718d10970a6a06e06bef89553d9ae65d938a886eae",
                             Role = 1
                         });
                 });

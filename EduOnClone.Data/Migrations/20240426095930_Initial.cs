@@ -19,8 +19,7 @@ namespace EduOnClone.Data.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     SubjectName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     SubjectDescription = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Author = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false)
+                    Author = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -71,8 +70,7 @@ namespace EduOnClone.Data.Migrations
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Title = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Author = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    SubjectId = table.Column<int>(type: "int", nullable: false),
-                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false)
+                    SubjectId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -92,8 +90,7 @@ namespace EduOnClone.Data.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Variant = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    TestId = table.Column<int>(type: "int", nullable: false),
-                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false)
+                    TestId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -109,7 +106,7 @@ namespace EduOnClone.Data.Migrations
             migrationBuilder.InsertData(
                 table: "Users",
                 columns: new[] { "Id", "CreatedAt", "Email", "FirstName", "Gender", "IsVerified", "LastName", "Password", "Role" },
-                values: new object[] { 1, new DateTime(2024, 4, 25, 7, 9, 55, 148, DateTimeKind.Utc).AddTicks(6067), "ozodchik.krasavchik@gmail.com", "Ozodbek", 1, false, "Umarov", "f40f5198-f995-4212-8604-cfef53690471", 1 });
+                values: new object[] { 1, new DateTime(2024, 4, 26, 9, 59, 30, 618, DateTimeKind.Utc).AddTicks(8360), "ozodchik.krasavchik@gmail.com", "Ozodbek", 1, false, "Umarov", "186cf774c97b60a1c106ef718d10970a6a06e06bef89553d9ae65d938a886eae", 1 });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Options_TestId",

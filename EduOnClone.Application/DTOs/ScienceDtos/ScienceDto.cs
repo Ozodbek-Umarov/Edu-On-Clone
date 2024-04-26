@@ -15,7 +15,6 @@ public class ScienceDto : AddScienceDto
             Subject = science.Subject,
             Author = science.Author,
             Description = science.Description,
-            SubjectId = science.SubjectId,
             Name = science.Name,
             Title = science.Title,
         };
