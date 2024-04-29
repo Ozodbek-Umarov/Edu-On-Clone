@@ -9,6 +9,6 @@ public class SubjectRepository(AppDbContext dbContext) : GenericRepository<Subje
 {
     public async Task<Subject?> GetByNameAsync(string name)
     {
-        return await _dbContext.Subjects.FirstOrDefaultAsync(x => x.SubjectName == name);
+        return await _dbContext.Subjects.FirstOrDefaultAsync(x => x.SubjectName.ToLower() == name);
     }
 }
