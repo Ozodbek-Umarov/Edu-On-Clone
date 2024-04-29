@@ -106,7 +106,7 @@ namespace EduOnClone.Data.Migrations
             migrationBuilder.InsertData(
                 table: "Users",
                 columns: new[] { "Id", "CreatedAt", "Email", "FirstName", "Gender", "IsVerified", "LastName", "Password", "Role" },
-                values: new object[] { 1, new DateTime(2024, 4, 26, 9, 59, 30, 618, DateTimeKind.Utc).AddTicks(8360), "ozodchik.krasavchik@gmail.com", "Ozodbek", 1, false, "Umarov", "186cf774c97b60a1c106ef718d10970a6a06e06bef89553d9ae65d938a886eae", 1 });
+                values: new object[] { 1, new DateTime(2024, 4, 29, 10, 19, 57, 203, DateTimeKind.Utc).AddTicks(5355), "ozodchik.krasavchik@gmail.com", "Ozodbek", 1, true, "Umarov", "186cf774c97b60a1c106ef718d10970a6a06e06bef89553d9ae65d938a886eae", 1 });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Options_TestId",

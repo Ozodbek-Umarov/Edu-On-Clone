@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EduOnClone.Data.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20240426095930_Initial")]
+    [Migration("20240429101958_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
@@ -170,11 +170,11 @@ namespace EduOnClone.Data.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedAt = new DateTime(2024, 4, 26, 9, 59, 30, 618, DateTimeKind.Utc).AddTicks(8360),
+                            CreatedAt = new DateTime(2024, 4, 29, 10, 19, 57, 203, DateTimeKind.Utc).AddTicks(5355),
                             Email = "ozodchik.krasavchik@gmail.com",
                             FirstName = "Ozodbek",
                             Gender = 1,
-                            IsVerified = false,
+                            IsVerified = true,
                             LastName = "Umarov",
                             Password = "186cf774c97b60a1c106ef718d10970a6a06e06bef89553d9ae65d938a886eae",
                             Role = 1
