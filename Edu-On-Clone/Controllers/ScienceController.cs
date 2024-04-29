@@ -19,6 +19,7 @@ public class ScienceController(IScienceService scienceService) : ControllerBase
         return Ok();
     }
     [HttpGet("id")]
+    [Authorize(Roles = "Admin, SuperAdmin")]
     public async Task<IActionResult> GetByIdAsync(int id)
     {
         return Ok(await _scienceService.GetByIdAsync(id));

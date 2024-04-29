@@ -21,7 +21,7 @@ public class AdminService(IUnitOfWork work,
             throw new StatusCodeExeption(HttpStatusCode.NotFound, "User not found!");
 
         if (user.Role == Role.SuperAdmin)
-            throw new StatusCodeExeption(HttpStatusCode.BadRequest, "Jinnilik qilma!");
+            throw new StatusCodeExeption(HttpStatusCode.BadRequest, "Jinnilik qilma ustoz aytgan");
 
         user.Role = user.Role == Role.Admin ? Role.User : Role.Admin;
 

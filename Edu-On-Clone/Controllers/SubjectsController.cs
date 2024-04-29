@@ -26,7 +26,8 @@ public class SubjectsController(ISubjectService subjectService) : ControllerBase
         return Ok(await _subjectService.GetAllAsync());
     }
 
-    [HttpGet("{id}"), Authorize]
+    [HttpGet("{id}")]
+    [Authorize(Roles = "Admin, SuperAdmin")]
     public async Task<IActionResult> GetByIdAsync(int id)
     {
         return Ok(await _subjectService.GetByIdAsync(id));
